@@ -36,6 +36,8 @@ end
 # config.gsub!(/^publishTo <<=.*^}\n\n/m, "")
 # config.gsub!(/^publishTo.*/, "")
 
+config.gsub!(/organization := "org.scalastyle"/, 'organization := "' + DWANGO_ORGANIZATION + '"')
+
 config.gsub!(/"org.scalastyle" %% "scalastyle" % "0.3.2"/, '"' + DWANGO_ORGANIZATION + '" % "scalastyle_' + SCALA_VERSON + '" % "' + SCALASTYLE_VERSION + '"')
 
 # Add our resolver to load dwango scala-style, and set maven output folder
