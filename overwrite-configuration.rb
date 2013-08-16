@@ -3,10 +3,10 @@
 ###### Configuration
 BUILD_FILE_PATH = "./build.sbt"
 
-SCALA_VERSON = "2.10.2"
+SCALA_VERSON = "2.9.2"
 SCALASTYLE_VERSION = "0.3.3-SNAPSHOT"
 
-SCALA_MEJOR_VERSION = "2.10"
+SCALA_MEJOR_VERSION = "2.9"
 
 DWANGO_ORGANIZATION = "jp.co.dwango"
 
@@ -36,7 +36,7 @@ end
 # config.gsub!(/^publishTo <<=.*^}\n\n/m, "")
 # config.gsub!(/^publishTo.*/, "")
 
-config.gsub!(/"org.scalastyle" %% "scalastyle" % "0.3.2"/, '"' + DWANGO_ORGANIZATION + '" % "scalastyle_' + SCALA_MEJOR_VERSION + '" % "' + SCALASTYLE_VERSION + '"')
+config.gsub!(/"org.scalastyle" %% "scalastyle" % "0.3.2"/, '"' + DWANGO_ORGANIZATION + '" % "scalastyle_' + SCALA_VERSON + '" % "' + SCALASTYLE_VERSION + '"')
 
 # Add our resolver to load dwango scala-style, and set maven output folder
 config += '
