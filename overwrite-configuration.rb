@@ -3,10 +3,8 @@
 ###### Configuration
 BUILD_FILE_PATH = "./build.sbt"
 
-SCALA_VERSON = "2.9.2"
-SCALASTYLE_VERSION = "0.3.3-SNAPSHOT"
-
-SCALA_MEJOR_VERSION = "2.9"
+SCALA_VERSON = "2.10.2"
+SCALASTYLE_VERSION = "0.3.3"
 
 DWANGO_ORGANIZATION = "jp.co.dwango"
 
@@ -36,9 +34,11 @@ end
 # config.gsub!(/^publishTo <<=.*^}\n\n/m, "")
 # config.gsub!(/^publishTo.*/, "")
 
+# config.gsub!(/^publishTo <<=.*^}\n\n/m, "")
+
 config.gsub!(/organization := "org.scalastyle"/, 'organization := "' + DWANGO_ORGANIZATION + '"')
 
-config.gsub!(/"org.scalastyle" %% "scalastyle" % "0.3.2"/, '"' + DWANGO_ORGANIZATION + '" % "scalastyle_' + SCALA_VERSON + '" % "' + SCALASTYLE_VERSION + '"')
+# config.gsub!(/"org.scalastyle" %% "scalastyle" % "0.3.2"/, '"' + DWANGO_ORGANIZATION + '" %% "scalastyle" % "' + SCALASTYLE_VERSION + '"')
 
 # Add our resolver to load dwango scala-style, and set maven output folder
 config += '
@@ -47,6 +47,17 @@ resolvers += "dwango-maven" at "' + DWANGO_MAVEN_URL + '"
 publishTo := Some(Resolver.file("Local", new File("' + MAVE_OUTPUT_PATH + '")) )
 
 scalaVersion := "' + SCALA_VERSON + '"
+
+crossScalaVersions <<= sbtVersion(v => v match {
+  case v12 if v startsWith("0.12") => Seq("2.9.2")
+  case _ => Seq("2.10.2")
+})
+
+libraryDependencies <<= sbtVersion(v => v match {
+  case v12 if v startsWith("0.12") => Seq("jp.co.dwango" %% "scalastyle" % "0.3.3-SNAPSHOT")
+  case _ => Seq("jp.co.dwango" %% "scalastyle" % "0.3.3")
+})
+
 '
 
 # Change developer's information
