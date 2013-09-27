@@ -30,20 +30,20 @@
         </developer>
     </developers>
     <properties>
-        <sbtVersion>0.12</sbtVersion>
-        <scalaVersion>2.9.2</scalaVersion>
+        <sbtVersion>0.13</sbtVersion>
+        <scalaVersion>2.10</scalaVersion>
     </properties>
     <dependencies>
         <dependency>
             <groupId>org.scala-sbt</groupId>
             <artifactId>sbt</artifactId>
-            <version>0.12.3</version>
+            <version>0.13.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>jp.co.dwango</groupId>
-            <artifactId>scalastyle_2.9.2</artifactId>
-            <version>0.3.3-SNAPSHOT</version>
+            <artifactId>scalastyle_2.10</artifactId>
+            <version>0.3.3</version>
         </dependency>
     </dependencies>
 </project>
