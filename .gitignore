@@ -4,3 +4,5 @@ project/project/target
 *.class
 *.swp
 *.jar
+.cache
+.idea
